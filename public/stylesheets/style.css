@@ -1,8 +1,76 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#logoimage{
+  width: 250px;  
+}
+
+#menu{
+
+}
 
 a {
-  color: #00B7FF; }
+  color:black;
+  text-decoration: none;
+  padding: 15px;
+}
+
+a:hover {
+  color: #d6d6d6
+}
+
+#maincont{
+  display: flex;
+  flex-direction: row;
+  padding: 100px 150px;
+  /* justify-content: space-between; */
+}
+
+#contlogin{
+  background-color: black;
+  color: white;
+  padding: 100px;
+  align-self: left;
+  justify-content: center;
+  width: 300px;
+}
+
+#contsignup{
+  background-color: black;
+  color: white;
+  padding: 100px;
+  align-self: right;
+  justify-content: center;
+  width: 300px;
+}
+
+#loginpagecont{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 100px;
+  text-align: center;
+  width: 500px;
+  border: black 1px solid;
+  margin-left: 400px;
+}
+
+/* #separador{
+  background-color: white;
+  width: 60px;
+} */
+
+
 
 /*# sourceMappingURL=style.css.map */

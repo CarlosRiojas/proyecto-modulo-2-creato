@@ -8,16 +8,24 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+  <nav id="navbar">
+    <span id="logo">
+      <a href="/">
+        <img id="logoimage" src="../images/logo.png"/>
+      </a>
+    </span>
+    <span class="menu">
+      <a href="/">Home</a>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/signup">Signup</a>
+      <a href="/auth/logout">Logout</a>
+    </span>
   </nav>
+
+
 
   {{{body}}}
 
-  <script src="/javascripts/script.js"></script>
+ <script src="/javascripts/script.js"></script>
 </body>
 </html>

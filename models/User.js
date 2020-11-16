@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         unique: true,
@@ -12,7 +16,7 @@ const userSchema = new Schema({
         enum: ['COLLABORATOR', 'USER'],
         default: 'USER'
     },
-    picture: { type: String, default: 'https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png' },
+    picture: { type: String, default: '../public/images/defaultPP.jpg' },
     googleID: String,
 }, {
     timestamps: true

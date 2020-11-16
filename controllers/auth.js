@@ -9,7 +9,7 @@ exports.signupProcess = async (req, res) => {
     const { email, password } = req.body
     if (!email || !password) {
       return res.render("auth/signup", {
-        errorMessage: "provide  email and password"
+        errorMessage: "Please provide email and password"
       })
     }
     const user = await User.findOne({ email })
@@ -47,7 +47,7 @@ exports.loginView = (req, res) => {
     res.redirect("/login")
   }
 
-  //exports de google
+  // exports de google
   exports.googleInit = passport.authenticate("google", {
     scope: [
       "https://www.googleapis.com/auth/userinfo.profile",

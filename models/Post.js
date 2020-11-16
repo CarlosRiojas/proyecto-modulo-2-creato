@@ -12,7 +12,7 @@ const postSchema = new Schema({
     category: {
       type: String,
       required: true,
-      enum: [Animals, Art, Cars, Crafts, Design, Food, Sports, Other]
+      enum: [Animals, Art, Cars, Crafts, Design, Food, Sports, Technology, Other]
     },
     content: String,
     media: { 

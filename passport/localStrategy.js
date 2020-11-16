@@ -7,14 +7,14 @@ const bcrypt        = require('bcrypt');
 const GoogleStrategy = require("passport-google-oauth20").Strategy
 
 passport.use(new LocalStrategy({
-    usernameField: 'username',
+    emailField: 'email',
     passwordField: 'password'
   }, 
-  (username, password, done) => {
-    User.findOne({ username })
+  (email, password, done) => {
+    User.findOne({ email })
     .then(foundUser => {
       if (!foundUser) {
-        done(null, false, { message: 'Incorrect username' });
+        done(null, false, { message: 'Incorrect email' });
         return;
       }
 

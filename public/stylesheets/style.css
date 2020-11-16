@@ -79,7 +79,8 @@ a:hover {
 
 #loginbackground{
   background-image: url('../images/fondo2.jpg');
-  background-repeat: none;
+  background-repeat: no-repeat;
+  height: 500px;
 }
 
 #signupbackground{

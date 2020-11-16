@@ -15,8 +15,6 @@ const flash      = require("connect-flash");
 // const {OAuth2Client} = require('google-auth-library');
 
 
-
-
 mongoose
   .connect(process.env.DB||'mongodb://localhost/creato', {useNewUrlParser: true})
   .then(x => {
@@ -85,5 +83,8 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
       
+// const posts = require('./routes/auth')
+// app.use('/createPost', authRoutes)
+
 
 module.exports = app;

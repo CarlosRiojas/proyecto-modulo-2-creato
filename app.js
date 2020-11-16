@@ -12,7 +12,7 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-const {OAuth2Client} = require('google-auth-library');
+// const {OAuth2Client} = require('google-auth-library');
 
 
 
@@ -36,6 +36,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+require('./passport/index')(app)
 
 // Express View engine setup
 

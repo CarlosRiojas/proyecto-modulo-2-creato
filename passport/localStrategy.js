@@ -1,8 +1,10 @@
+require('dotenv').config();
+
 const passport      = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User          = require('../models/User');
 const bcrypt        = require('bcrypt');
-const GoogleStrategy= require("passport-google-oauth20").Strategy
+const GoogleStrategy = require("passport-google-oauth20").Strategy
 
 passport.use(new LocalStrategy({
     usernameField: 'username',
@@ -27,18 +29,7 @@ passport.use(new LocalStrategy({
   }
 ));
 
-//verificacion del local strategy
-passport.serializeUser((user, cb) => {
-  cb(null, user._id)
-})
 
-passport.deserializeUser(async (id, cb) => {
-  const user = await User.findById(id)
-  user.password = null
-  cb(null, user) //
-})
-
-module.exports = passport
 
 //GOOGLE STRATEGY
 passport.use(
@@ -64,3 +55,17 @@ passport.use(
     }
   )
 )
+
+
+//verificacion del local strategy
+// passport.serializeUser((user, cb) => {
+//   cb(null, user._id)
+// })
+
+// passport.deserializeUser(async (id, cb) => {
+//   const user = await User.findById(id)
+//   user.password = null
+//   cb(null, user) //
+// })
+
+module.exports = passport

@@ -12,10 +12,13 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+const {OAuth2Client} = require('google-auth-library');
+
+
+
 
 mongoose
-  .connect('mongodb://localhost/creato', {useNewUrlParser: true})
+  .connect(process.env.DB||'mongodb://localhost/creato', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

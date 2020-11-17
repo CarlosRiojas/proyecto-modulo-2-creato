@@ -3,7 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const { viewCreatePost, createPost, userPosts, postDetail } = require('../controllers/posts');
-const { loginView, googleInit,  googleCb } = require('../controllers/auth')
+const { loginView, loginProcess, googleInit,  googleCb,privatePage } = require('../controllers/auth')
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -11,14 +11,8 @@ const bcryptSalt = 10;
 
 
 router.get("/login", loginView);
+router.post("/login", loginProcess);
 
-
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/profile",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -55,6 +49,8 @@ router.post("/signup", (req, res, next) => {
     })
   });
 });
+
+router.get("/profile",privatePage)
 
 router.get('/createPost', viewCreatePost)
 router.post('/createPost', createPost)

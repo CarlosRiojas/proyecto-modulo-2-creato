@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const { viewCreatePost, createPost } = require('../controllers/posts');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -24,16 +25,16 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  if (email === "" || password === "") {
+    res.render("auth/signup", { message: "Indicate email and password" });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({ email }, "email", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", { message: "The email already exists" });
       return;
     }
 
@@ -41,7 +42,7 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username,
+      email,
       password: hashPass
     });
 
@@ -54,6 +55,10 @@ router.post("/signup", (req, res, next) => {
     })
   });
 });
+
+router.get('/createPost', viewCreatePost)
+router.post('/createPost', createPost)
+
 
 router.get("/logout", (req, res) => {
   req.logout();

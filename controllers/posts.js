@@ -8,19 +8,19 @@ exports.viewCreatePost = (req, res) => res.render('createPost')
 exports.createPost = async(req, res) => {
     const { title, category, content } = req.body
     const media = req.file.path
-    // await Post.create({ title, category, content, media, ownerID:user._id })
-    res.render('userPosts')
-    console.log(user._id)
+    const thumbnail = req.file.path
+    await Post.create({ title, category, content, media, thumbnail, ownerID:user._id })
+    res.render('collabDashboard')
 }
 
 //-------Posts de cada user
 
-exports.userPosts = async (req, res) => {
+exports.collabPosts = async (req, res) => {
   const { user } = req
   const posts = await Post.find({
     ownerID: user._id
   })
-  res.render("userPosts", { posts })
+  res.render("collabDashboard", { posts })
 }
 
 //-------Post detail

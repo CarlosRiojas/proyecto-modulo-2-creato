@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
-const { viewCreatePost, createPost, userPosts, postDetail } = require('../controllers/posts');
+const { viewCreatePost, createPost, collabPosts, postDetail } = require('../controllers/posts');
 const { loginView, loginProcess, googleInit,  googleCb,privatePage } = require('../controllers/auth')
 
 // Bcrypt to encrypt passwords
@@ -58,8 +58,8 @@ router.get("/profile",privatePage)
 
 //-------CreatePost
 
-router.get('/auth/createPost', viewCreatePost)
-router.post('/auth/createPost', createPost)
+router.get('/createPost', viewCreatePost)
+router.post('/createPost', createPost)
 
 //-------Logout
 
@@ -75,10 +75,16 @@ router.get("/auth/google/callback", googleCb)
 
 // //-------Posts de cada user
 
-router.get("/userPosts,", userPosts)
+router.get("/collabDashbord", collabPosts)
 
 // //-------Detalle de los posts
 
 router.get("/:postId", postDetail)
+
+//-------User Dashboard
+
+//-------Collab Dashboard
+
+//------- Profile
 
 module.exports = router;

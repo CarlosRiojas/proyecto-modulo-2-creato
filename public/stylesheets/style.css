@@ -1,21 +1,27 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+}
 
-
-  #navbar {
+#navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding-left: 50px;
     padding-right: 50px;
+    margin-bottom: 100px;
   }
   
   #logoimage{
     width: 250px;  
   }
   
+  #wholebody{
+    padding-left: 200px;
+  padding-right: 200px;
+  }
+
   #menu{
   
   }

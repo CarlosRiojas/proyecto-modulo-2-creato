@@ -15,9 +15,8 @@ const postSchema = new Schema({
       enum: ['Animals', 'Art', 'Cars', 'Crafts', 'Design', 'Food', 'Sports', 'Technology', 'Other']
     },
     content: String,
-    media: { 
-      type: String,
-    }
+    media: String,
+    thumbnail: String
 }, {
     timestamps: true
 })

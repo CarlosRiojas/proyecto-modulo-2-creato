@@ -1,0 +1,18 @@
+<h1> Hello {{name}}! </h1>
+<br/>
+<h2>Your posts:</h2>
+
+<div class="row">
+  {{#each post}}
+  <div>
+    <h2>{{title}}</h2>
+    <small>{{category}}</small>
+  </div>
+  <button><a href="/auth/:postId">Details</a></button>
+  <br/>
+  <button>Edit</button>
+  <button>Delete</button>
+  {{/each}}
+</div>
+
+<button><a href="/auth/createPost">Add new post</a></button>

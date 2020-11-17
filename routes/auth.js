@@ -2,20 +2,19 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
-const { viewCreatePost, createPost, userPosts, postDetail, loginProcess} = require('../controllers/auth');
-const { loginView, }
+const { viewCreatePost, createPost, userPosts, postDetail } = require('../controllers/posts');
+const { loginView, googleInit,  googleCb } = require('../controllers/auth')
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
-});
+router.get("/login", loginView);
+
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -66,6 +65,8 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+router.get("/auth/google", googleInit)
+router.get("/auth/google/callback", googleCb)
 
 router.get("/userPosts,", userPosts)
 router.get("/:postId", postDetail)

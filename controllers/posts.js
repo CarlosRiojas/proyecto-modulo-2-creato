@@ -1,14 +1,19 @@
 const Post = require('../models/Post')
 
+
+//-------Create Posts
+
 exports.viewCreatePost = (req, res) => res.render('createPost')
 
 exports.createPost = async(req, res) => {
     const { title, category, content } = req.body
     const media = req.file.path
-    await Post.create({ title, category, content, media, ownerID:user._id })
+    // await Post.create({ title, category, content, media, ownerID:user._id })
     res.render('userPosts')
+    console.log(user._id)
 }
 
+//-------Posts de cada user
 
 exports.userPosts = async (req, res) => {
   const { user } = req
@@ -17,6 +22,8 @@ exports.userPosts = async (req, res) => {
   })
   res.render("userPosts", { posts })
 }
+
+//-------Post detail
 
 exports.postDetail = async (req, res) => {
   const { postId } = req.params

@@ -78,13 +78,15 @@ a:hover {
 }
 
 #loginbackground{
-  background-image: url('../images/fondo2.jpg');
+  background-image: url('../images/fondo3.jpg');
   background-repeat: no-repeat;
   height: 500px;
 }
 
 #signupbackground{
-  background-image: url('../images/fondo2.jpg');
+  background-image: url('../images/fondo3.jpg');
+  background-repeat: no-repeat;
+  height: 500px;
 }
 
 .btnsubmit{

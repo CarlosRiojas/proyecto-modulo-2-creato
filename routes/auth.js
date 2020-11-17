@@ -9,10 +9,12 @@ const { loginView, loginProcess, googleInit,  googleCb,privatePage } = require('
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+//-------Login
 
 router.get("/login", loginView);
 router.post("/login", loginProcess);
 
+//-------Signup
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -50,21 +52,33 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+
+
 router.get("/profile",privatePage)
 
-router.get('/createPost', viewCreatePost)
-router.post('/createPost', createPost)
+//-------CreatePost
 
+router.get('/auth/createPost', viewCreatePost)
+router.post('/auth/createPost', createPost)
+
+//-------Logout
 
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
+//-------Auth Google
+
 router.get("/auth/google", googleInit)
 router.get("/auth/google/callback", googleCb)
 
+// //-------Posts de cada user
+
 router.get("/userPosts,", userPosts)
+
+// //-------Detalle de los posts
+
 router.get("/:postId", postDetail)
 
 module.exports = router;

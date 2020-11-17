@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
 const passport = require("../passport")
+const 
 
 exports.signupView = (req, res) => res.render("auth/signup")
 
@@ -29,7 +30,7 @@ exports.signupProcess = async (req, res) => {
 }
 
 exports.loginView = (req, res) => {
-    res.render("auth/login", { errorMessage: req.flash("error") })
+    res.render("auth/login")
   }
 
   exports.loginProcess = passport.authenticate("local", {

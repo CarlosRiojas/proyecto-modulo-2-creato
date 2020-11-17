@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
 const passport = require("../passport")
+const express = require("express");
 
 exports.signupView = (req, res) => res.render("auth/signup")
 
@@ -32,11 +33,15 @@ exports.loginView = (req, res) => {
     res.render("auth/login", { errorMessage: req.flash("error") })
   }
 
-  exports.loginProcess = passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true
-  })
+  // exports.loginProcess = passport.authenticate("local", {
+  //   successRedirect: "/profile",
+  //   failureRedirect: "/auth/login",
+  //   failureFlash: true,
+  //   passReqToCallback: true
+  // })
+
+
+  
 
   exports.privatePage = (req, res) => {
     res.render("private", req.user)
@@ -56,6 +61,6 @@ exports.loginView = (req, res) => {
   })
 
   exports.googleCb = passport.authenticate("google", {
-    successRedirect: "/private-page",
+    successRedirect: "/",
     failureRedirect: "/login"
   })

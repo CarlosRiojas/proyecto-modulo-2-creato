@@ -77,7 +77,7 @@ router.get("/google/callback", googleCb)
 
 // //-------Posts de cada user
 
-router.get("/collabDashbord", collabPosts)
+router.get("/collabDashboard", collabPosts)
 
 // //-------Detalle de los posts
 

@@ -3,7 +3,8 @@ const { Schema, model } = require('mongoose')
 const postSchema = new Schema({
     ownerID: {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      
     },
     title: {
       type: String,
@@ -17,7 +18,7 @@ const postSchema = new Schema({
     content: String,
     media: { 
       type: String,
-    }
+    },
 }, {
     timestamps: true
 })

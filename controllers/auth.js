@@ -57,6 +57,6 @@ exports.loginView = (req, res) => {
   })
 
   exports.googleCb = passport.authenticate("google", {
-    successRedirect: "/",
+    successRedirect: "/userpage",
     failureRedirect: "/login"
   })

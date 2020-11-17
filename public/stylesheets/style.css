@@ -2,6 +2,24 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+
+  #navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  
+  #logoimage{
+    width: 250px;  
+  }
+  
+  #menu{
+  
+  }
+
 a {
   color:black;
   text-decoration: none;

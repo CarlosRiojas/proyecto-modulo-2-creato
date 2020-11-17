@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: (req, file) => {
         return {
-            folder: 'restaurantes',
+            folder: 'coleccion',
             allowed_formats: ['jpg', 'png'],
             public_id: `app-${file.originalname}`
         }

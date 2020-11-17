@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
-const { viewCreatePost, createPost } = require('../controllers/posts');
+const { viewCreatePost, createPost, userPosts, postDetail } = require('../controllers/posts');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -64,5 +64,9 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+
+router.get("/userPosts,", userPosts)
+router.get("/:postId", postDetail)
 
 module.exports = router;

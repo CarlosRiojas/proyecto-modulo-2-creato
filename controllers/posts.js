@@ -24,5 +24,5 @@ exports.postDetail = async (req, res) => {
   const post = await Post.findById(postId)
   const owns = user ? String(user._id) == String(post.ownerID) : null
 
-  res.render("postDetail", { post, owns })
+  res.render("/postDetail", { post, owns })
 }

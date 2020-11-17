@@ -9,7 +9,6 @@ exports.createPost = async(req, res) => {
     res.render('/userPosts')
 }
 
-exports.userPosts = (req, res) => res.render('/userPosts')
 
 exports.userPosts = async (req, res) => {
   const { user } = req
@@ -17,4 +16,13 @@ exports.userPosts = async (req, res) => {
     ownerID: user._id
   })
   res.render("/userPosts", { posts })
+}
+
+exports.postDetail = async (req, res) => {
+  const { postId } = req.params
+  const { user } = req
+  const post = await Post.findById(postId)
+  const owns = user ? String(user._id) == String(post.ownerID) : null
+
+  res.render("postDetail", { post, owns })
 }

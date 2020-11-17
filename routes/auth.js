@@ -4,15 +4,19 @@ const router = express.Router();
 const User = require("../models/User");
 const { viewCreatePost, createPost, userPosts, postDetail } = require('../controllers/posts');
 const { loginView, loginProcess, googleInit,  googleCb,privatePage } = require('../controllers/auth')
+const uploadPicture = require("../config/cloudinary")
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+//-------Login
 
 router.get("/login", loginView);
 router.post("/login", loginProcess);
 
+//-------Signup
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -50,21 +54,33 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+
+
 router.get("/profile",privatePage)
 
-router.get('/createPost', viewCreatePost)
-router.post('/createPost', createPost)
+//-------CreatePost
 
+router.get('/createPost', viewCreatePost)
+router.post('/createPost',uploadPicture.single("media"), createPost)
+
+//-------Logout
 
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-router.get("/auth/google", googleInit)
-router.get("/auth/google/callback", googleCb)
+//-------Auth Google
+
+router.get("/google", googleInit)
+router.get("/google/callback", googleCb)
+
+// //-------Posts de cada user
 
 router.get("/userPosts,", userPosts)
+
+// //-------Detalle de los posts
+
 router.get("/:postId", postDetail)
 
 module.exports = router;

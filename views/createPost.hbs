@@ -1,18 +1,35 @@
 <h1>New Post</h1>
   
-<form action="/createPost" method="post" enctype="multipart/form-data">
+<form action="/auth/createPost" method="post" enctype="multipart/form-data">
   <label>Title</label>
+  <br/>
   <input type="text" name="title">
   <br/>
+  <br/>
   <label>Category</label>
-  <input type="text" name="type">
+  <br/>
+  <select name="category" id="category">
+    <option value="animals">Animals</option>
+    <option value="art">Art</option>
+    <option value="cars">Cars</option>
+    <option value="crafts">Crafts</option>
+    <option value="design">Design</option>
+    <option value="food">Food</option>
+    <option value="sports">Sports</option>
+    <option value="technology">Technology</option>
+    <option value="other">Other</option>    
+  </select>
+  <br/>
   <br/>
   <label>Content</label>
-  <input type="number" name="capacidad">
+  <br/>
+  <textarea type="text" name="capacidad"></textarea>
+  <br/>
   <br/>
   <label>Media</label>
-  <input type="file" name="Media">
+  <br/>
+  <input type="file" name="media">
+  <br/>
   <br/>
   <input type="submit">
-  <button class="submit">Post</button>
 </form>

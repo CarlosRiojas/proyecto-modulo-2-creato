@@ -51,7 +51,11 @@
       <p class="account-message">
         Have an account already?
         <a href="/auth/login">Login</a>
+       <div class="g-signin2" data-onsuccess="onSignIn" style="position:relative; padding-left:185px;">
+         <a href="/auth/google">Login with Google</a></div>  
       </p>
     </form>
   </div>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="process.env.GOOGLE_ID.apps.googleusercontent.com">
 </div>

@@ -4,6 +4,8 @@ const router = express.Router();
 const User = require("../models/User");
 const { viewCreatePost, createPost, collabPosts, postDetail } = require('../controllers/posts');
 const { loginView, loginProcess, googleInit,  googleCb,privatePage } = require('../controllers/auth')
+const uploadPicture = require("../config/cloudinary")
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -59,7 +61,7 @@ router.get("/profile",privatePage)
 //-------CreatePost
 
 router.get('/createPost', viewCreatePost)
-router.post('/createPost', createPost)
+router.post('/createPost',uploadPicture.single("media"), createPost)
 
 //-------Logout
 
@@ -70,8 +72,8 @@ router.get("/logout", (req, res) => {
 
 //-------Auth Google
 
-router.get("/auth/google", googleInit)
-router.get("/auth/google/callback", googleCb)
+router.get("/google", googleInit)
+router.get("/google/callback", googleCb)
 
 // //-------Posts de cada user
 

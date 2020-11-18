@@ -3,7 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const { viewCreatePost, createPost, collabPosts, postDetail } = require('../controllers/posts');
-const { loginView, loginProcess, googleInit,  googleCb,privatePage } = require('../controllers/auth')
+const { loginView, loginProcess, googleInit,  googleCb, privatePage } = require('../controllers/auth')
 const uploadPicture = require("../config/cloudinary")
 
 
@@ -23,10 +23,11 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
+  const name = req.body.name
   const email = req.body.email;
   const password = req.body.password;
-  if (email === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate email and password" });
+  if (email === "" || password === "" || name === "") {
+    res.render("auth/signup", { message: "Please indicate name, email and password" });
     return;
   }
 
@@ -40,15 +41,17 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
+      name,
       email,
       password: hashPass
     });
 
     newUser.save()
     .then(() => {
-      res.redirect("/");
+      res.redirect("/auth/login");
     })
     .catch(err => {
+      console.log(err)
       res.render("auth/signup", { message: "Something went wrong" });
     })
   });

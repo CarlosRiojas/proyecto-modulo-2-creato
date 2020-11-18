@@ -104,10 +104,22 @@ a:hover {
   padding: 10px
 }
 
+#btnsubmit{
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px
+}
+
 .input{
   border: black 1px solid;
   padding: 4px;
 }
 
+#card{
+  width: 200px;
+  height: 240px;
+  border: solid 1px black;
+}
 
 /*# sourceMappingURL=style.css.map */

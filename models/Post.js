@@ -17,11 +17,11 @@ const postSchema = new Schema({
     },
     content: String,
     media: String,
-    thumbnail: String
-//     {
-//       type: String,
-//       default: '/images/defaultthumbnail.jpg'
-// }
+    thumbnail:
+    {
+      type: String,
+      default: '/images/defaultthumbnail.jpg'
+}
 }, {
     timestamps: true
 })

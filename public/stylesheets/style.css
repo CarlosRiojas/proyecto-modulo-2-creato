@@ -116,10 +116,16 @@ a:hover {
   padding: 4px;
 }
 
+.allcards {
+  /* display: flex; */
+}
+
 #card{
   width: 200px;
   height: 240px;
   border: solid 1px black;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 /*# sourceMappingURL=style.css.map */

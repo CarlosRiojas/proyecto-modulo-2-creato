@@ -63,7 +63,7 @@ router.get("/profile", privatePage)
 //-------CreatePost
 
 router.get('/createPost', viewCreatePost)
-router.post('/createPost',uploadPicture.single("media"), createPost)
+router.post('/createPost',uploadPicture.array("media", 2), createPost)
 
 //-------Logout
 

@@ -7,9 +7,9 @@ exports.viewCreatePost = (req, res) => res.render('createPost')
 
 exports.createPost = async(req, res) => {
     const { title, category, content } = req.body
-    const media = req.file.path
-    const thumbnail = req.file.path
-    console.log(req.user)
+    const media = req.files[0].path
+    const thumbnail = req.files[1].path
+    console.log(req.files)
    await Post.create({ title, category, content, media, thumbnail, ownerID:req.user._id })
     res.redirect("/auth/collabDashboard")
 }

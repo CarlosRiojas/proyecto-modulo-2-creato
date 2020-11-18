@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
 const passport = require('passport')
+const Post = require('../models/Post')
 
 
 //-------Signup
@@ -54,8 +55,11 @@ exports.loginView = (req, res) => {
   exports.profile = async (req, res) => {
     const id = req.session.passport.user
     const user = await User.findById(id)
+    const posts = await Post.find({
+          ownerID: id
+        })
     if(user.role === "COLLABORATOR"){
-      res.render("collabDashboard", {user})
+      res.render("collabDashboard", {user, posts})
     } else {
       res.render("userDashboard", {user})
     }

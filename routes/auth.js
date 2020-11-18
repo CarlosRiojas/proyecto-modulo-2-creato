@@ -55,7 +55,6 @@ router.post("/signup", (req, res, next) => {
 });
 
 
-
 router.get("/profile",privatePage)
 
 //-------CreatePost

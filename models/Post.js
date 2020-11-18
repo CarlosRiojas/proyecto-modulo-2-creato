@@ -16,10 +16,11 @@ const postSchema = new Schema({
       enum: ['Animals', 'Art', 'Cars', 'Crafts', 'Design', 'Food', 'Sports', 'Technology', 'Other']
     },
     content: String,
-    media: { 
+    media: String,
+    thumbnail: {
       type: String,
-    },
-}, {
+      default: '/images/defaultthumbnail.jpg'
+}}, {
     timestamps: true
 })
 

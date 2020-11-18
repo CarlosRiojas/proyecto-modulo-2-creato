@@ -59,6 +59,7 @@ router.post("/signup", (req, res, next) => {
 
 
 router.get("/profile", profile)
+// router.post("/profile", profile)
 
 //-------CreatePost
 

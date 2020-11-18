@@ -22,18 +22,18 @@ exports.createPost = async(req, res) => {
     } else {
       await Post.create({ title, category, content, ownerID:req.user._id })
     }
-    res.redirect("/auth/collabDashboard")
+    res.redirect("/auth/profile")
 }
 
 //-------Posts de cada user
 
-exports.collabPosts = async (req, res) => {
-  const user = await User.findById(req.user.id)
-  const posts = await Post.find({
-    ownerID: req.user._id
-  })
-  res.render("collabDashboard", { posts, user })
-}
+// exports.collabPosts = async (req, res) => {
+//   const user = await User.findById(req.user.id)
+//   const posts = await Post.find({
+//     ownerID: req.user._id
+//   })
+//   res.render("collabDashboard", { posts, user })
+// }
 
 //-------Post detail
 

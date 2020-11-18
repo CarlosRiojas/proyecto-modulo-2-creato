@@ -80,7 +80,7 @@ router.get("/google/callback", googleCb)
 
 //-------Collab Dashboard
 
-router.get("/collabDashboard", collabPosts)
+// router.get("/collabDashboard", collabPosts)
 
 // //-------Detalle de los posts
 

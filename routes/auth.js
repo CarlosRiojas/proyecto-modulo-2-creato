@@ -1,10 +1,12 @@
 const express = require("express");
 const passport = require('passport');
 const router = express.Router();
+const Post = require("../models/Post")
 const User = require("../models/User");
 const { viewCreatePost, createPost, collabPosts, postDetail } = require('../controllers/posts');
 const { loginView, loginProcess, googleInit,  googleCb, profile } = require('../controllers/auth')
 const uploadPicture = require("../config/cloudinary")
+
 
 
 // Bcrypt to encrypt passwords
@@ -57,9 +59,9 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+//-------Profile view
 
 router.get("/profile", profile)
-// router.post("/profile", profile)
 
 //-------CreatePost
 
@@ -78,18 +80,16 @@ router.get("/logout", (req, res) => {
 router.get("/google", googleInit)
 router.get("/google/callback", googleCb)
 
-//-------Collab Dashboard
-
-// router.get("/collabDashboard", collabPosts)
-
-// //-------Detalle de los posts
+//-------Detalle de los posts
 
 router.get("/:postId", postDetail)
 
-//-------User Dashboard
-
-
-
-//------- Profile
+//-------Delete btn
+router.post('/:postId/delete', (req, res) => {
+  const { postId } = req.params;
+  Post.findByIdAndDelete(postId)
+  .then(() => res.redirect('/auth/profile'))
+  .catch(error => console.log(`Error while deleting a book: ${error}`));
+});
 
 module.exports = router;

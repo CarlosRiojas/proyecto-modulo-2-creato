@@ -1,10 +1,12 @@
 <h1>{{post.title}}</h1>
 <small>{{post.category}}</small>
 <p>{{post.content}}</p>
-<div><img src="{{post.media}}"</div>
+<div><img src="{{post.media}}"></div>
 {{#if owns}}
 <div>
     <button>Edit</button>
-    <button>Delete</button>
+    <form action="/auth/{{post.id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
 </div>
 {{/if}}

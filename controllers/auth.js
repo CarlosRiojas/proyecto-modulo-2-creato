@@ -2,7 +2,6 @@ const bcrypt = require("bcrypt")
 const User = require("../models/User")
 const passport = require('passport')
 
-
 //-------Signup
 exports.signupView = (req, res) => res.render("auth/signup")
 

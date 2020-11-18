@@ -1,9 +1,9 @@
 const Post = require('../models/Post')
-
+const User = require("../models/User")
 
 //-------Create Posts
 
-exports.viewCreatePost = (req, res) => res.render('createPost')
+exports.viewCreatePost =  (req, res) => res.render('createPost')
 
 exports.createPost = async(req, res) => {
     const { title, category, content } = req.body

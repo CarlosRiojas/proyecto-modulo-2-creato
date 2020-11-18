@@ -1,10 +1,10 @@
 <h1>{{post.title}}</h1>
 <small>{{post.category}}</small>
 <p>{{post.content}}</p>
-<div><img src="{{post.media}}"</div>
+<div><img src="{{post.media}}"></div>
 {{#if owns}}
 <div>
-    <button>Edit</button>
+<a href="/auth/{{id}}/edit">Edit</a>
     <button>Delete</button>
 </div>
 {{/if}}

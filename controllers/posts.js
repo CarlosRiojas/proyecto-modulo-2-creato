@@ -45,3 +45,29 @@ exports.postDetail = async (req, res) => {
 
   res.render("postDetail", { post, owns })
 }
+
+//--------------edicion del post
+
+exports.editItem = (req,res) => {
+  const {postId}= req.params
+Post.findById(postId)
+.then(postToEdit => {
+  res.render("editPage",postToEdit)
+})
+.catch(error => console.log(`error while editing an item: ${error}`))
+}
+
+exports.postEditItem = (req,res) => {
+  const {postId}= req.params
+  const {title,category,content,media,thumbnail} = req.body
+  Post.findByIdAndUpdate(postId,{title,category,content,media,thumbnail},{new: true})
+  .then(updatedPost =>
+    res.redirect(`/${updatedPost.postId}`))
+    .catch(error => console.log(`error while posting the editing an item: ${error}`))
+}
+
+  // const {title,category,thumbnail,media,content}= req.body
+  // await Post.findByIdAndUpdate(req.params.postId,{title,category,thumbnail,content,media},{new: true})
+  // res.redirect(`/auth/${req.params.postId}`)
+
+

@@ -15,7 +15,7 @@ const storage = new CloudinaryStorage({
     params: (req, file) => {
         return {
             folder: 'coleccion',
-            allowed_formats: ['jpg', 'png'],
+            allowed_formats: ['jpg', 'png' ,"mp4" ,"flv"],
             public_id: `app-${file.originalname}`
         }
     }

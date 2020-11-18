@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
-const { viewCreatePost, createPost, collabPosts, postDetail } = require('../controllers/posts');
+const { viewCreatePost, createPost, collabPosts, postDetail,editItem,postEditItem } = require('../controllers/posts');
 const { loginView, loginProcess, googleInit,  googleCb, profile } = require('../controllers/auth')
 const uploadPicture = require("../config/cloudinary")
 
@@ -88,8 +88,12 @@ router.get("/:postId", postDetail)
 
 //-------User Dashboard
 
-
+//----- editar items 
+router.get("/:postId/edit",editItem)
+router.post("/:postId/edit",postEditItem)
 
 //------- Profile
 
 module.exports = router;
+
+

@@ -4,7 +4,9 @@
 <div><img src="{{post.media}}"></div>
 {{#if owns}}
 <div>
-<a href="/auth/{{id}}/edit">Edit</a>
-    <button>Delete</button>
+<a href="/auth/{{post.id}}/edit">Edit</a>
+    <form action="/auth/{{post.id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
 </div>
 {{/if}}

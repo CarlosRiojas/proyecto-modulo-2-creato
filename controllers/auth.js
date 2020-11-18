@@ -57,10 +57,12 @@ exports.loginView = (req, res) => {
     const posts = await Post.find({
           ownerID: id
         })
+    const allPosts = await Post.find()
+    // const owns = user ? String(user._id) == String(posts.ownerID) : null
     if(user.role === "COLLABORATOR"){
       res.render("collabDashboard", {user, posts})
     } else {
-      res.render("userDashboard", {user})
+      res.render("userDashboard", {user, allPosts})
     }
   }
 

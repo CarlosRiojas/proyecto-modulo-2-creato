@@ -3,7 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const { viewCreatePost, createPost, collabPosts, postDetail } = require('../controllers/posts');
-const { loginView, loginProcess, googleInit,  googleCb, privatePage } = require('../controllers/auth')
+const { loginView, loginProcess, googleInit,  googleCb, profile } = require('../controllers/auth')
 const uploadPicture = require("../config/cloudinary")
 
 
@@ -58,7 +58,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 
-router.get("/profile", privatePage)
+router.get("/profile", profile)
 
 //-------CreatePost
 

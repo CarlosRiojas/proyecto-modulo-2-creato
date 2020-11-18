@@ -51,15 +51,22 @@ exports.loginView = (req, res) => {
   }
   //-------Redirect after login
 
-  exports.privatePage = async (req, res) => {
-    if(req.user.role === "COLLABORATOR"){
-      const user = await User.findById(req.user.id)
+  exports.profile = async (req, res) => {
+    const id = req.session.passport.user
+    const user = await User.findById(id)
+    if(user.role === "COLLABORATOR"){
       res.render("collabDashboard", {user})
     } else {
-      const user = await User.findById(req.user.id)
       res.render("userDashboard", {user})
     }
   }
+
+
+  // exports.profileView = async (req, res) => {
+  //   const id = req.session.passport.user
+  //   const user = await User.findById(id)
+  //   res.render("profile", user)
+  // }
 
   // exports de google
   exports.googleInit = passport.authenticate("google", {

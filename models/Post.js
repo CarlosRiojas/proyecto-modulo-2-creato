@@ -20,7 +20,7 @@ const postSchema = new Schema({
     thumbnail: {
       type: String,
       default: '/images/defaultthumbnail.jpg'
-}, {
+}}, {
     timestamps: true
 })
 

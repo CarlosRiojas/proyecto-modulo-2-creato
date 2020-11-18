@@ -9,16 +9,16 @@ exports.createPost = async(req, res) => {
     const { title, category, content } = req.body
     const media = req.file.path
     const thumbnail = req.file.path
-    await Post.create({ title, category, content, media, thumbnail, ownerID:user._id })
-    res.render('collabDashboard')
+    console.log(req.user)
+   await Post.create({ title, category, content, media, thumbnail, ownerID:req.user._id })
+    res.redirect("/auth/collabDashboard")
 }
 
 //-------Posts de cada user
 
 exports.collabPosts = async (req, res) => {
-  const { user } = req
   const posts = await Post.find({
-    ownerID: user._id
+    ownerID: req.user._id
   })
   res.render("collabDashboard", { posts })
 }

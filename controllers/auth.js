@@ -7,7 +7,7 @@ const passport = require('passport')
 exports.signupView = (req, res) => res.render("auth/signup")
 
 exports.signupProcess = async (req, res) => {
-    const { email, password } = req.body
+    const {name, email, password } = req.body
     if (!email || !password) {
       return res.render("auth/signup", {
         errorMessage: "Please provide email and password"
@@ -23,6 +23,7 @@ exports.signupProcess = async (req, res) => {
   const salt = bcrypt.genSaltSync(12)
   const hashPass = bcrypt.hashSync(password, salt)
   await User.create({
+    name,
     email,
     password: hashPass
   })

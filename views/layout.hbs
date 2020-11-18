@@ -16,9 +16,12 @@
     </span>
     <span class="menu">
       <a href="/">Home</a>
+      {{#if user}}
+      <a href="/auth/logout">Logout</a>
+      {{else}}
       <a href="/auth/login">Login</a>
       <a href="/auth/signup">Signup</a>
-      <a href="/auth/logout">Logout</a>
+      {{/if}}
         
     </span>
   </nav>

@@ -48,10 +48,16 @@ exports.loginView = (req, res) => {
     req.logout()
     res.redirect("/login")
   }
-  //-------
+  //-------Redirect after login
 
-  exports.privatePage = (req, res) => {
-    res.render("auth/userpage", req.user)
+  exports.privatePage = async (req, res) => {
+    if(req.user.role === "COLLABORATOR"){
+      const user = await User.findById(req.user.id)
+      res.render("collabDashboard", {user})
+    } else {
+      const user = await User.findById(req.user.id)
+      res.render("userDashboard", {user})
+    }
   }
 
   // exports de google

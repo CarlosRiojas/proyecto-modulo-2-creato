@@ -100,9 +100,13 @@ a:hover {
 .btnsubmit{
   background-color: black;
   color: white;
-  border-radius: 25%;
   border: none;
   padding: 10px
+}
+
+.input{
+  border: black 1px solid;
+  padding: 4px;
 }
 
 

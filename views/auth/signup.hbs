@@ -29,38 +29,41 @@
 
 <div id="signupbackground">
   <div id="signuppagecont">
-    <h3>Signup</h3>
+    <h3>SIGNUP</h3>
 
     <form action="/auth/signup" method="POST" id="form-container">
       <label for="name">Name</label>
-      <input id="name" type="text" name="name" placeholder="Your Name">
+      <input id="name" type="text" name="name" placeholder="Your Name" class="input">
 
       <br><br>
 
       <label for="email">Email</label>
-      <input id="email" type="text" name="email" placeholder="Your email">
+      <input id="email" type="text" name="email" placeholder="Your email" class="input">
 
       <br><br>
 
       <label for="password">Password</label>
-      <input id="password" type="password" name="password" placeholder="Your password">
+      <input id="password" type="password" name="password" placeholder="Your password" class="input">
+      <br>
       <br>
       {{#if message }}
         <div class="error-message">{{ message }}</div>
       {{/if}}
 
-      <br><br>
+      <br>
 
-      <button class="submit">Signup</button>
+      <button class="btnsubmit">Signup</button>
       <p>- or -</p>
       <div class="g-signin2" data-onsuccess="onSignIn" style="position:relative; padding-left:185px;">
-        <a href="/auth/google">Login with Google</a></div>  
+         <a href="/auth/google">Login with Google</a></div>  
+      <p class="account-message">
+        Have an account already?
+        <a href="/auth/login">Login</a>
       </p>
     </form>
   </div>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id" content="process.env.GOOGLE_ID.apps.googleusercontent.com">
-      <p class="account-message">
-        Have an account already?
-        <a href="/auth/login">Login</a>
+      
+
 </div>

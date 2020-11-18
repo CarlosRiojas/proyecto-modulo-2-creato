@@ -55,7 +55,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 
-router.get("/profile",privatePage)
+router.get("/profile", privatePage)
 
 //-------CreatePost
 
@@ -74,7 +74,7 @@ router.get("/logout", (req, res) => {
 router.get("/google", googleInit)
 router.get("/google/callback", googleCb)
 
-// //-------Posts de cada user
+//-------Collab Dashboard
 
 router.get("/collabDashboard", collabPosts)
 
@@ -84,7 +84,7 @@ router.get("/:postId", postDetail)
 
 //-------User Dashboard
 
-//-------Collab Dashboard
+
 
 //------- Profile
 

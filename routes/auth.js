@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const Post = require("../models/Post");
 const { viewCreatePost, createPost, collabPosts, postDetail,editItem,postEditItem } = require('../controllers/posts');
 const { loginView, loginProcess, googleInit,  googleCb, profile } = require('../controllers/auth')
 const uploadPicture = require("../config/cloudinary")
@@ -59,7 +60,7 @@ router.post("/signup", (req, res, next) => {
 
 
 router.get("/profile", profile)
-// router.post("/profile", profile)
+
 
 //-------CreatePost
 
@@ -78,17 +79,20 @@ router.get("/logout", (req, res) => {
 router.get("/google", googleInit)
 router.get("/google/callback", googleCb)
 
-//-------Collab Dashboard
-
-// router.get("/collabDashboard", collabPosts)
-
 // //-------Detalle de los posts
 
 router.get("/:postId", postDetail)
 
-//-------User Dashboard
+//-------Delete posts
 
-//----- editar items 
+router.post('/:postId/delete', (req, res) => {
+  const { postId } = req.params;
+  Post.findByIdAndDelete(postId)
+  .then(() => res.redirect('/auth/profile'))
+  .catch(error => console.log(`Error while deleting a book: ${error}`));
+});
+
+//----- editar posts
 router.get("/:postId/edit",editItem)
 router.post("/:postId/edit",postEditItem)
 

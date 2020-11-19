@@ -63,6 +63,7 @@ router.post("/signup", (req, res, next) => {
 
 router.get("/profile", profile)
 
+
 //-------CreatePost
 
 router.get('/createPost', viewCreatePost)
@@ -81,12 +82,20 @@ router.get("/google", googleInit)
 router.get("/google/callback", googleCb)
 
 //-------Detalle de los posts
+// //-------Detalle de los posts
 
 router.get("/:postId", postDetail)
 
-//-------User Dashboard
+//-------Delete posts
 
-//----- editar items 
+router.post('/:postId/delete', (req, res) => {
+  const { postId } = req.params;
+  Post.findByIdAndDelete(postId)
+  .then(() => res.redirect('/auth/profile'))
+  .catch(error => console.log(`Error while deleting a book: ${error}`));
+});
+
+//----- editar posts
 router.get("/:postId/edit",editItem)
 router.post("/:postId/edit",postEditItem)
 

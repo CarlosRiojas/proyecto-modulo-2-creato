@@ -33,23 +33,25 @@ passport.use(
     {
       clientID: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "http://localhost:3000/auth/google/callback"
     },
     async (_, __, profile, done) => {
       const user = await User.findOne({ googleID: profile.id })
 
-      if (user) {
-        return done(null, user)
+      if (!user) {
+        const newUser = await User.create({
+          googleID: profile.id,
+          email: profile.emails[0].value
+        })
+        done(null, newUser)
       }
 
-      const newUser = await User.create({
-        googleID: profile.id,
-        email: profile.emails[0].value
-      })
 
       done(null, newUser)
     }
+   
   )
+
 )
 
 

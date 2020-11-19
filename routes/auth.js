@@ -92,7 +92,7 @@ router.post('/:postId/delete', (req, res) => {
   const { postId } = req.params;
   Post.findByIdAndDelete(postId)
   .then(() => res.redirect('/auth/profile'))
-  .catch(error => console.log(`Error while deleting a book: ${error}`));
+  .catch(error => console.log(`Error while deleting a post: ${error}`));
 });
 
 //----- editar posts

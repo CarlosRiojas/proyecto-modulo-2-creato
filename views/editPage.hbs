@@ -1,25 +1,41 @@
-<h1>Edit items!</h1>
-<form action="/artist/update/{{id}}" method="post">
+<h1>Editar post</h1>
+<form action="/auth/{{id}}/edit" method="post">
+ <img src="{{media}}"/>
 <label for="title" >Edit title:
-  <input type = "text" name ="title" id="title" value="{{post.title}}">
+  <input type="text" name ="title" id="title" value="{{title}}">
 </label>
-<br>
-<label for="title" >Edit category:
-  <input type = "text" name ="title" id="title" value="{{post.category}}">
+<br/>
+<br/>
+<label for="category" >Edit category:
+  <select name ="category" id="category" value="{{category}}">
+    <option value="Animals">Animals</option>
+    <option value="Art">Art</option>
+    <option value="Cars">Cars</option>
+    <option value="Crafts">Crafts</option>
+    <option value="Design">Design</option>
+    <option value="Food">Food</option>
+    <option value="Sports">Sports</option>
+    <option value="Technology">Technology</option>
+    <option value="Other">Other</option>    
+  </select>
 </label>
-<br>
+<br/>
+<br/>
 <label for="title" >Edit content:
-  <input type = "text" name ="title" id="title" value="{{post.content}}">
+  <input type="text" name ="content" id="content" value="{{content}}">
 </label>
-<br>
+  <br/>
+  <br/>
 <label for="title" >Edit media:
-  <input type = "text" name ="title" id="title" value="{{post.media}}">
+  <input type="file" name="media" id="media" value="{{media}}">
 </label>
-<br>
+  <br/>
+  <br/>
 <label for="title" >Edit Thumbnail:
-  <input type = "text" name ="title" id="title" value="{{post.Thumbnail}}">
+  <input type="file" name="thumbnail" id="thumbnail" value="{{thumbnail}}">
 </label>
-<div><img src="{{post.media}}"></div><buton>post changes</buton>
-<div></div>
+  <br/>
+  <br/>
+<input type="submit">
 
 </form>

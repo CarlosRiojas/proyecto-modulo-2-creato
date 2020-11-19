@@ -41,6 +41,7 @@ exports.postDetail = async (req, res) => {
   const { postId } = req.params
   const { user } = req
   const post = await Post.findById(postId)
+  console.log(post)
   const owns = user ? String(user._id) == String(post.ownerID) : null
 
   res.render("postDetail", { post, owns })
@@ -62,7 +63,7 @@ exports.postEditItem = (req,res) => {
   const {title,category,content,media,thumbnail} = req.body
   Post.findByIdAndUpdate(postId,{title,category,content,media,thumbnail},{new: true})
   .then(updatedPost =>
-    res.redirect(`/${updatedPost.postId}`))
+    res.redirect(`/auth/${updatedPost._id}`))
     .catch(error => console.log(`error while posting the editing an item: ${error}`))
 }
 
@@ -71,3 +72,5 @@ exports.postEditItem = (req,res) => {
   // res.redirect(`/auth/${req.params.postId}`)
 
 
+
+  

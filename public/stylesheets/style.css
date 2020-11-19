@@ -3,6 +3,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
 }
 
+#indexbackground{
+  background-image: url('../images/Slide1.jpg');
+  height: 600px ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
 #navbar {
     display: flex;
     flex-direction: row;
@@ -10,7 +20,7 @@ body {
     justify-content: space-between;
     padding-left: 50px;
     padding-right: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
   
   #logoimage{
@@ -36,30 +46,53 @@ a:hover {
   color: #d6d6d6
 }
 
-#maincont{
+/* #maincont{
+  display: flex;
+  justify-content: space-around;
+} */
+
+#title{
+  align-self: center;
+  color: white;
+  font-size: 30px;
+  margin-top: 220px;
+}
+
+#containers{
   display: flex;
   flex-direction: row;
-  padding: 100px 150px;
-  /* justify-content: space-between; */
+  align-self: center;
+  margin-bottom: 120px;
 }
 
-#contlogin{
-  background-color: black;
-  color: white;
-  padding: 100px;
-  align-self: left;
-  justify-content: center;
-  width: 300px;
+.indexcont{
+  background-color: rgba(255, 255, 266, 0.9);
+  color: black;
+  width: 275px;
+  height: 75px;
+  text-align: center;
+  padding-bottom: 7px;
+  margin-top: 100px;
+  margin-bottom: 120px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
-#contsignup{
+.indexbtn {
   background-color: black;
   color: white;
+  font-size: 11px;
+  padding: 5px;
+}
+
+/* #contsignup{
+  background-color: rgba(255, 255, 266, 0.9);
+  color: black;
   padding: 100px;
   align-self: right;
   justify-content: center;
   width: 300px;
-}
+} */
 
 #loginpagecont{
   background-color: rgba(255, 255, 266, 0.9);
@@ -112,20 +145,53 @@ a:hover {
 }
 
 .input{
-  border: black 1px solid;
+  border: none;
+  background-color: #e5e5e5;
   padding: 4px;
 }
 
 .allcards {
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
-#card{
+.card{
+  width: 300px;
+  height: 350px;
+  border: none;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.thumbnailimg{
+  padding-top: 10px;
+  height: 200px;
   width: 200px;
-  height: 240px;
-  border: solid 1px black;
-  /* display: flex;
-  flex-direction: column; */
+}
+
+.maindash{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.deletebtn{
+  background-color: rgb(178, 22, 53);
+  color: white;
+  border: none;
+  padding: 10px
+}
+
+.editbtn{
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px
 }
 
 /*# sourceMappingURL=style.css.map */

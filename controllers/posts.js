@@ -40,22 +40,25 @@ exports.createPost = async(req, res) => {
 exports.postDetail = async (req, res) => {
   const { postId } = req.params
   const { user } = req
+  // const user = await User.findById(req.session.passport.user.id)
   const post = await Post.findById(postId)
   const owns = user ? String(user._id) == String(post.ownerID) : null
-
-  res.render("postDetail", { post, owns })
+  // console.log(ownerID.name)
+  res.render("postDetail", { post, owns, user })
 }
 
 //--------------edicion del post
 
-exports.editItem = (req,res) => {
+exports.editItem = async(req,res) => {
+  // const user = await User.findById(req.session.passport.user._id)
   const {postId}= req.params
-Post.findById(postId)
-.then(postToEdit => {
-  res.render("editPage",postToEdit)
-})
-.catch(error => console.log(`error while editing an item: ${error}`))
-}
+  const {user} = req
+  Post.findById(postId)
+  .then(postToEdit => {
+  res.render("editPage", {postToEdit, user})
+  })
+  .catch(error => console.log(`error while editing an item: ${error}`))
+  }
 
 exports.postEditItem = (req,res) => {
   const {postId}= req.params

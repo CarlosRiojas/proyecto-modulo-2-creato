@@ -4,12 +4,12 @@
 
     <form action="/auth/login" method="POST" id="form-container">
       <label for="email">Email</label>
-      <input id="email" type="text" name="email" placeholder="Your email" class="input">
+      <input id="email" type="text" name="email"  class="input">
 
       <br><br>
 
       <label for="password">Password</label>
-      <input id="password" type="password" name="password" placeholder="Your password" class="input">
+      <input id="password" type="password" name="password"  class="input">
       <br>
       {{#if message }}
         <div class="error-message">{{ message }}</div>
@@ -17,11 +17,11 @@
 
       <br><br>
 
-      <button class="btnsubmit">Login</button>
+      <button class="btnsubmit">LOGIN</button>
 
       <p class="account-message">
         Don't have an account yet?
-        <a href="/auth/signup">Signup</a>
+        <a href="/auth/signup" class="indexbtn">Signup</a>
       </p>
     </form>
   </div>

@@ -1,13 +1,23 @@
-<h1> Hello {{user.name}}! </h1>
+<div class="maindash">
 
-<div id="card">
-  {{#each allPosts}}
-  <div id="card">
-    <img src="{{thumbnail}}"/>
-    <h2>{{title}}</h2>
-    <small>{{category}}</small>
-  </div>
-  <button><a href="/auth/{{_id}}">Details</a></button>
+  <br>
+  <h1> Hello {{user.name}}! </h1>
   <br/>
-  {{/each}}
+  <hr>
+  <br>
+  <br>
+  <h2>Recent posts:</h2>
+  <br>
+  <div class="allcards">
+    {{#each allPosts}}
+    <div class="card">
+        <img src="{{thumbnail}}" class="thumbnailimg"/>
+        <h2>{{title}}</h2>
+        <small>{{category}}</small>
+        <br>
+        <a href="/auth/{{_id}}" class="indexbtn">View</a>
+      </div>
+      <br/>
+    {{/each}}
+  </div>
 </div>

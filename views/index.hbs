@@ -1,15 +1,18 @@
-<container id="maincont">
-  <container id="contlogin">
-    <h2>Are you already a member?</h2>
-    <a href="/auth/login"><button id="loginindexbtn">LOGIN</button></a>
-  </container>
-  {{!-- <container id="separador"></container> --}}
-  <container id="contsignup">
-    <h2>Not a member yet?</h2>
-    <a href="/auth/signup"><button id="loginindexbtn"> SIGN UP</button></a>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+<div id="indexbackground">
+  <div id="title">
+    <h1>Exclusive content from top people</h1>
+  </div>
+  <div id="containers">
+    <div class="indexcont">
+      <h3>Are you already a member?</h3>
+      <a href="/auth/login" class="indexbtn">LOGIN</a>
+    </div>
 
-  </container>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="796071487433-j9pjin1qgkff6vklfivmmq2cteqofvgv.apps.googleusercontent.com" content="796071487433-j9pjin1qgkff6vklfivmmq2cteqofvgv.apps.googleusercontent.com">
-</container>
+    <div class="indexcont">
+      <h3>Not a member yet?</h3>
+      <a href="/auth/signup" class="indexbtn">SIGN UP</a>
+    </div>
+  </div>
+ 
+
+</div>

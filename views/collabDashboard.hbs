@@ -1,17 +1,28 @@
-<h1> Hello {{user.name}}! </h1>
-<br/>
-<h2>Your posts:</h2>
-<a href="/auth/createPost" class="btnsubmit">Add new post</a>
-<br>
-<br>
-<br>
-<div class="allcards">
-  {{#each posts}}
-  <div id="card">
-    <img src="{{thumbnail}}"/>
-    <h2>{{title}}</h2>
-    <small>{{category}}</small>
+<div class="maindash">
+ 
+  <br>
+  <h1> Hello {{user.name}}! </h1>
+  <br/>
+  <hr>
+  <br>
+  <br/>
+  <a href="/auth/createPost" class="btnsubmit">Add new post</a>
+  <br>
+  <br>
+  <h2>Your posts:</h2>
+  <br>
+  <div class="allcards">
+    {{#each posts}}
+    <div class="card">
+      <img src="{{thumbnail}}" class="thumbnailimg"/>
+      <h2>{{title}}</h2>
+      <small><strong>{{post.ownerID.name}}</strong></small>
+      <br>
+      <small>{{category}}</small>
+      <br>
+      <a href="/auth/{{_id}}" class="indexbtn">View</a>
+    </div>
+    <br/>
+    {{/each}}
   </div>
-  <button><a href="/auth/{{_id}}">Details</a></button>
-  {{/each}}
 </div>

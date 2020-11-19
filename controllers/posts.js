@@ -13,15 +13,15 @@ exports.createPost = async(req, res) => {
     const { title, category, content } = req.body
     const media = req.files[0].path
     const thumbnail = req.files[1].path
-    if (thumbnail && media){
+    // if (thumbnail && media){
       await Post.create({ title, category, content, media, thumbnail, ownerID:req.user._id })
-    } else if (thumbnail) {
-      await Post.create({ title, category, content, thumbnail, ownerID:req.user._id })
-    } else if (media){
-      await Post.create({ title, category, content, media, ownerID:req.user._id })
-    } else {
-      await Post.create({ title, category, content, ownerID:req.user._id })
-    }
+    // } else if (thumbnail) {
+    //   await Post.create({ title, category, content, thumbnail, ownerID:req.user._id })
+    // } else if (media){
+    //   await Post.create({ title, category, content, media, ownerID:req.user._id })
+    // } else {
+    //   await Post.create({ title, category, content, ownerID:req.user._id })
+    // }
     res.redirect("/auth/profile")
 }
 
@@ -41,15 +41,15 @@ exports.postDetail = async (req, res) => {
   const { postId } = req.params
   const { user } = req
   // const user = await User.findById(req.session.passport.user.id)
-  const post = await Post.findById(postId)
+  const post = await Post.findById(postId).populate('ownerID')
   const owns = user ? String(user._id) == String(post.ownerID) : null
-  // console.log(ownerID.name)
+  // console.log(post.ownerID.name)
   res.render("postDetail", { post, owns, user })
 }
 
 //--------------edicion del post
 
-exports.editItem = async(req,res) => {
+exports.editItem = (req,res) => {
   // const user = await User.findById(req.session.passport.user._id)
   const {postId}= req.params
   const {user} = req
@@ -62,10 +62,10 @@ exports.editItem = async(req,res) => {
 
 exports.postEditItem = (req,res) => {
   const {postId}= req.params
-  const {title,category,content,media,thumbnail} = req.body
-  Post.findByIdAndUpdate(postId,{title,category,content,media,thumbnail},{new: true})
+  const {title, category, content, media, thumbnail} = req.body
+  Post.findByIdAndUpdate(postId, {title, category, content, media, thumbnail},{new: true})
   .then(updatedPost =>
-    res.redirect(`/${updatedPost.postId}`))
+    res.redirect(`/auth/${updatedPost.postId}`))
     .catch(error => console.log(`error while posting the editing an item: ${error}`))
 }
 

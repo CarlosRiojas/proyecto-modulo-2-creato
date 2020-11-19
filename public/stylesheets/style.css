@@ -194,4 +194,9 @@ a:hover {
   padding: 10px
 }
 
+.postmedia{
+  max-width: 500px;
+  max-height: 500px;
+}
+
 /*# sourceMappingURL=style.css.map */

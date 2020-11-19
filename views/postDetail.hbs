@@ -2,9 +2,11 @@
 
 <h1>{{post.title}}</h1>
 <h5>{{ownerID.user.name}}</h5>
+<small><strong>{{post.ownerID.name}}</strong></small>
+<br>
 <small>{{post.category}}</small>
 <p>{{post.content}}</p>
-<div><img src="{{post.media}}"></div>
+<div><img src="{{post.media}}" class="postmedia"></div>
 {{#if owns}}
 <div>
 <a href="/auth/{{post.id}}/edit" class="editbtn">Edit</a>

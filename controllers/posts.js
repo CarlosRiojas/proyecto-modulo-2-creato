@@ -42,7 +42,7 @@ exports.postDetail = async (req, res) => {
   const { user } = req
   // const user = await User.findById(req.session.passport.user.id)
   const post = await Post.findById(postId).populate('ownerID')
-  const owns = user ? String(user._id) == String(post.ownerID._id) : null
+  const owns = user ? String(user._id) == String(post.ownerID) : null
   // console.log(post.ownerID.name)
   res.render("postDetail", { post, owns, user })
 }

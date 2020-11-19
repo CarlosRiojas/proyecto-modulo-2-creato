@@ -1,13 +1,13 @@
 <h1>EDIT POST</h1>
-<form action="/auth/{{id}}/edit" method="post">
- <img src="{{media}}"/>
+<form action="/auth/{{postToEdit._id}}/edit" method="post">
+ <img src="{{postToEdit.media}}"/>
 <label for="title" >Edit title:
-  <input type="text" name ="title" id="title" value="{{title}}">
+  <input type="text" name ="title" id="title" value="{{postToEdit.title}}">
 </label>
 <br/>
 <br/>
 <label for="category" >Edit category:
-  <select name ="category" id="category" value="{{category}}">
+  <select name ="category" id="category" value="{{postToEdit.category}}">
     <option value="Animals">Animals</option>
     <option value="Art">Art</option>
     <option value="Cars">Cars</option>
@@ -22,17 +22,17 @@
 <br/>
 <br/>
 <label for="title" >Edit content:
-  <input type="text" name ="content" id="content" value="{{content}}">
+  <input type="text" name ="content" id="content" value="{{postToEdit.content}}">
 </label>
   <br/>
   <br/>
 <label for="title" >Edit media:
-  <input type="file" name="media" id="media" value="{{media}}">
+  <input type="file" name="media" id="media" value="{{postToEdit.media}}">
 </label>
   <br/>
   <br/>
 <label for="title" >Edit Thumbnail:
-  <input type="file" name="thumbnail" id="thumbnail" value="{{thumbnail}}">
+  <input type="file" name="thumbnail" id="thumbnail" value="{{postToEdit.thumbnail}}">
 </label>
   <br/>
   <br/>

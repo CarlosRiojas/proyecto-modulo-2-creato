@@ -1,14 +1,19 @@
-<h1>NEW post</h1>
-  
+<div class="maindash">
+  <br>
+  <h1> NEW POST </h1>
+  <br/>
+  <hr>
+  <br>
+  <br>
 <form action="/auth/createPost" method="post" enctype="multipart/form-data">
   <label>Title</label>
   <br/>
-  <input type="text" name="title">
+  <input type="text" name="title" class="input">
   <br/>
   <br/>
   <label>Category</label>
   <br/>
-  <select name="category" id="category">
+  <select name="category" id="category" class="input">
     <option value="Animals">Animals</option>
     <option value="Art">Art</option>
     <option value="Cars">Cars</option>
@@ -23,16 +28,20 @@
   <br/>
   <label>Content</label>
   <br/>
-  <textarea type="text" name="content"></textarea>
+  <textarea type="text" name="content" class="input"></textarea>
   <br/>
   <br/>
   <label>Media</label>
   <br/>
-  <input type="file" name="media">
+  <input type="file" name="media" class="input">
   <br/>
   <br/>
   <label>Thumbnail</label>
   <br/>
-  <input type="file" name="media">
-  <input type="submit">
+  <input type="file" name="media" class="input">
+  <br/>
+  <br/>
+  <input type="submit" class="indexbtn">
 </form>
+
+</div>

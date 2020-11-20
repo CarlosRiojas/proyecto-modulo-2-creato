@@ -1,14 +1,17 @@
 <div class="maindash">
 <h1>{{post.title}}</h1>
-<small><strong>{{post.ownerID.name}}</strong></small>
-<br>
+<h4><strong>{{post.ownerID.name}}</strong></h4>
 <small>{{post.category}}</small>
+<br/>
+<br/>
 <p>{{post.content}}</p>
-<div><img src="{{post.media}}" class="postmedia"></div>
+<div class="postmedia"><img src="{{post.media}}" class="postmedia"></div>
 {{#if owns}}
 <div>
 <a href="/auth/{{post.id}}/edit" class="editbtn">Edit</a>
-<form action="/auth/{{post._id}}/delete" method="POST">
+<br/>
+
+<form action="/auth/{{post.id}}/delete" method="POST">
   <button class="deletebtn">Delete</button>
 </form>
 </div>

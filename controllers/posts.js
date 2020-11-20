@@ -42,8 +42,8 @@ exports.postDetail = async (req, res) => {
   const { user } = req
   // const user = await User.findById(req.session.passport.user.id)
   const post = await Post.findById(postId).populate('ownerID')
-  const owns = user ? String(user.id) == String(post.ownerID) : null
-  // console.log(post.ownerID.name)
+  const owns = user ? String(user._id) == String(post.ownerID._id) : null
+
   res.render("postDetail", { post, owns, user })
 }
 
@@ -62,10 +62,11 @@ exports.editItem = (req,res) => {
 
 exports.postEditItem = (req,res) => {
   const {postId}= req.params
-  const {title, category, content, media, thumbnail} = req.body
-  Post.findByIdAndUpdate(postId, {title, category, content, media, thumbnail},{new: true})
+  const {title, category, content} = req.body
+  const media = req.file.path
+  Post.findByIdAndUpdate(postId, {title, category, content, media},{new: true})
   .then(updatedPost =>
-    res.redirect(`/auth/${updatedPost.postId}`))
+    res.redirect(`/auth/${postId}`))
     .catch(error => console.log(`error while posting the editing an item: ${error}`))
 }
 

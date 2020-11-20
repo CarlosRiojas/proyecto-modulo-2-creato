@@ -97,7 +97,7 @@ router.post('/:postId/delete', (req, res) => {
 
 //----- editar posts
 router.get("/:postId/edit",editItem)
-router.post("/:postId/edit",postEditItem)
+router.post("/:postId/edit",uploadPicture.single("media"),postEditItem)
 
 //------- Profile
 //-------Delete btn

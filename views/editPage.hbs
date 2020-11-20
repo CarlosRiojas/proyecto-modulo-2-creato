@@ -2,14 +2,13 @@
 <form action="/auth/{{postToEdit.id}}/edit" method="post" enctype="multipart/form-data">
  <img src="{{postToEdit.media}}" id="imageEdit"/>
  <br/>
-  <br/>
   <label for="title" >Edit title:
-    <input type="text" name ="title" id="title" value="{{postToEdit.title}}">
+    <input type="text" name ="title" id="title" class="input" value="{{postToEdit.title}}">
   </label>
   <br/>
   <br/>
   <label for="category" >Edit category:
-    <select name ="category" id="category" value="{{postToEdit.category}}">
+    <select name ="category" id="category" class="input" value="{{postToEdit.category}}">
       <option value="Animals">Animals</option>
       <option value="Art">Art</option>
       <option value="Cars">Cars</option>
@@ -24,10 +23,10 @@
   <br/>
   <br/>
   <label for="title" >Edit content:
-    <textarea type="text" name ="content" id="content" value="{{postToEdit.content}}"></textarea>
+    <textarea type="text" name ="content" class="input" id="content" value="{{postToEdit.content}}"></textarea>
   </label>
     <br/>
     <br/>
-      <label for="title" >Edit image:<input type="file" name="media"></label>
-  <button type="submit">SUBMIT CHANGES</button>
+      <label for="title">Edit image: <input type="file" name="media"></label>
+  <button type="submit"class="indexbtn">SUBMIT CHANGES</button>
 </form>

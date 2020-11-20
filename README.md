@@ -8,7 +8,7 @@ Usuario: collab@mail.com
 Contraseña: collab
 
 User:
-Usuario: user@mail.com
+Usuario: user@gmail.com
 Contraseña: user
 
 Used variables:

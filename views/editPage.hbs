@@ -1,6 +1,8 @@
 <h1>EDIT POST</h1>
 <form action="/auth/{{postToEdit.id}}/edit" method="post" enctype="multipart/form-data">
- <img src="{{postToEdit.media}}"/>
+ <img src="{{postToEdit.media}}" id="imageEdit"/>
+ <br/>
+  <br/>
   <label for="title" >Edit title:
     <input type="text" name ="title" id="title" value="{{postToEdit.title}}">
   </label>

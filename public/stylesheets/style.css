@@ -144,6 +144,11 @@ a:hover {
   padding: 10px
 }
 
+#imageEdit{
+  max-height:300px;
+  
+}
+
 .input{
   border: none;
   background-color: #e5e5e5;

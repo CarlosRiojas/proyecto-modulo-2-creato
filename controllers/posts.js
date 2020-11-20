@@ -62,15 +62,24 @@ exports.editItem = (req,res) => {
   .catch(error => console.log(`error while editing an item: ${error}`))
   }
 
-exports.postEditItem = (req,res) => {
-  const {postId}= req.params
-  const {title, category, content, media, thumbnail} = req.body
-  Post.findByIdAndUpdate(postId, {title, category, content, media, thumbnail},{new: true})
-  .then(updatedPost =>
-    res.redirect(`/auth/${updatedPost.postId}`))
-    .catch(error => console.log(`error while posting the editing an item: ${error}`))
-}
+// exports.postEditItem = (req,res) => {
+//   const {postId}= req.params
+//   const {title, category, content, media, thumbnail} = req.body
+//   Post.findByIdAndUpdate(postId, {title, category, content, media, thumbnail},{new: true})
+//   .then(res.render(`/auth/${postId}`))
+//     .catch(error => console.log(`error while posting the editing an item: ${error}`))
+// }
 
+
+exports.postEditItem = async (req, res) => {
+  const {postId}= req.params
+  const {title, category, content} = req.body
+  const { media, thumbnail} = req.file.path
+  await User.findByIdAndUpdate(postId, { title, category, content, media, thumbnail }, { new: true })
+
+  console.log(title, category, content, media, thumbnail)
+  res.redirect("/auth/postId")
+}
   // const {title,category,thumbnail,media,content}= req.body
   // await Post.findByIdAndUpdate(req.params.postId,{title,category,thumbnail,content,media},{new: true})
   // res.redirect(`/auth/${req.params.postId}`)

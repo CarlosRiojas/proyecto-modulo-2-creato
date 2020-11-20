@@ -76,8 +76,6 @@ exports.postEditItem = async (req, res) => {
   const {title, category, content} = req.body
   const { media, thumbnail} = req.file.path
   await User.findByIdAndUpdate(postId, { title, category, content, media, thumbnail }, { new: true })
-
-  console.log(title, category, content, media, thumbnail)
   res.redirect("/auth/postId")
 }
   // const {title,category,thumbnail,media,content}= req.body
